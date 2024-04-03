@@ -19,7 +19,7 @@ extension UserResponseMapper on UserResponse {
 extension LoginResponseMapper on LoginResponse {
   AuthenticationModel toDomain() {
     return AuthenticationModel(
-      user?.toDomain(),
+      userResponse?.toDomain(),
       token.orEmpty(),
     );
   }

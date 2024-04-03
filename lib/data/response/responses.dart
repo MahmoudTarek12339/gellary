@@ -1,3 +1,7 @@
+import 'package:json_annotation/json_annotation.dart';
+
+part 'responses.g.dart';
+
 @JsonSerializable()
 class UserResponse {
   @JsonKey(name: "id")
@@ -7,7 +11,7 @@ class UserResponse {
   @JsonKey(name: "email")
   String? email;
   @JsonKey(name: "email_verified_at")
-  String? emailVerified_at;
+  String? email_verified_at;
   @JsonKey(name: "created_at")
   String? created_at;
   @JsonKey(name: "updated_at")
@@ -27,11 +31,11 @@ class UserResponse {
 @JsonSerializable()
 class LoginResponse {
   @JsonKey(name: "user")
-  UserResponse? user;
+  UserResponse? userResponse;
   @JsonKey(name: "token")
   String? token;
 
-  LoginResponse(this.user, this.token);
+  LoginResponse(this.userResponse, this.token);
 
   // from json
   factory LoginResponse.fromJson(Map<String, dynamic> json) =>

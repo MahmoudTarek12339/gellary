@@ -15,7 +15,10 @@ class LoginUseCase
   @override
   Future<Either<Failure, AuthenticationModel>> execute(
       LoginUseCaseInput input) async {
-    return await _repository.login(LoginRequest(input.email, input.password));
+    return await _repository.login(LoginRequest(
+      input.email,
+      input.password,
+    ));
   }
 }
 

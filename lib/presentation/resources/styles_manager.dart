@@ -1,46 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:my_gallery/presentation/resources/color_manager.dart';
 
 import 'font_manager.dart';
 
-TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
+TextStyle _getTextStyle(double fontSize, FontWeight fontWeight) {
   return TextStyle(
       fontSize: fontSize,
       fontFamily: FontConstants.fontFamily,
-      color: color,
+      color: ColorManager.lightBlack,
       fontWeight: fontWeight);
 }
 
 // regular style
 
-TextStyle getRegularStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.regular, color);
-}
-
-// medium style
-
-TextStyle getMediumStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.medium, color);
-}
-
-// medium style
-
-TextStyle getLightStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.light, color);
+TextStyle getRegularStyle({double fontSize = FontSize.s12}) {
+  return _getTextStyle(fontSize, FontWeightManager.regular);
 }
 
 // bold style
 
-TextStyle getBoldtStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.bold, color);
-}
-
-// semi bold style
-
-TextStyle getSemiBoldStyle(
-    {double fontSize = FontSize.s12, required Color color}) {
-  return _getTextStyle(fontSize, FontWeightManager.semiBold, color);
+TextStyle getBoldtStyle({double fontSize = FontSize.s12}) {
+  return _getTextStyle(fontSize, FontWeightManager.bold);
 }
