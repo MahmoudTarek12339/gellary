@@ -1,69 +1,26 @@
-/*import 'package:flutter/material.dart';
-import 'package:paprika/presentation/resources/styles_manager.dart';
-import 'package:paprika/presentation/resources/values_manager.dart';
+import 'package:flutter/material.dart';
+import 'package:my_gallery/presentation/resources/styles_manager.dart';
 
 import 'color_manager.dart';
 import 'font_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
-    primaryColor: ColorManager.primary,
-    primaryColorLight: ColorManager.lightPrimary,
-    primaryColorDark: ColorManager.darkPrimary,
-    disabledColor: ColorManager.grey1,
-    cardTheme: CardTheme(
-      color: ColorManager.white,
-      shadowColor: ColorManager.grey,
-      elevation: AppSize.s4,
-    ),
-    appBarTheme: AppBarTheme(
-      centerTitle: true,
-      color: ColorManager.primary,
-      elevation: AppSize.s4,
-      titleTextStyle:
-          getRegularStyle(fontSize: FontSize.s16, color: ColorManager.white),
-    ),
     buttonTheme: ButtonThemeData(
         shape: const StadiumBorder(),
-        disabledColor: ColorManager.grey1,
-        buttonColor: ColorManager.primary),
+        disabledColor: ColorManager.lightBlack,
+        buttonColor: ColorManager.blue),
     elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
             textStyle: getRegularStyle(
                 color: ColorManager.white, fontSize: FontSize.s18),
-            backgroundColor: ColorManager.darkPrimary,
+            backgroundColor: ColorManager.blue,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(AppSize.s12)))),
+                borderRadius: BorderRadius.circular(15)))),
     textTheme: TextTheme(
-        displayLarge: getBoldtStyle(
-            color: ColorManager.darkPrimary, fontSize: FontSize.s64),
-        displayMedium: getSemiBoldStyle(
-            color: ColorManager.lightBlack, fontSize: FontSize.s24),
-        displaySmall: getSemiBoldStyle(
-            color: ColorManager.lightBlack, fontSize: FontSize.s16),
-        headlineLarge: getSemiBoldStyle(
-            color: ColorManager.darkGrey, fontSize: FontSize.s24),
-        headlineMedium: getSemiBoldStyle(
-            color: ColorManager.lightBlack, fontSize: FontSize.s18),
-        headlineSmall: getSemiBoldStyle(
-            color: ColorManager.lightGrey, fontSize: FontSize.s14),
-        titleLarge:
-            getSemiBoldStyle(color: ColorManager.black, fontSize: FontSize.s22),
-        titleMedium:
-            getMediumStyle(color: ColorManager.grey2, fontSize: FontSize.s18),
-        titleSmall:
-            getRegularStyle(color: ColorManager.white, fontSize: FontSize.s16),
-        labelSmall:
-            getBoldtStyle(color: ColorManager.grey1, fontSize: FontSize.s12),
-        bodySmall:
-            getRegularStyle(color: ColorManager.black, fontSize: FontSize.s14),
-        bodyLarge:
-            getSemiBoldStyle(color: ColorManager.white, fontSize: FontSize.s18),
-        bodyMedium: getSemiBoldStyle(
-            color: ColorManager.lightBlack, fontSize: FontSize.s14),
-        labelMedium:
-            getSemiBoldStyle(color: ColorManager.grey, fontSize: FontSize.s14),
-        labelLarge:
-            getSemiBoldStyle(color: ColorManager.black, fontSize: FontSize.s16)),
+      headlineLarge: getBoldStyle(fontSize: FontSize.s50),
+      headlineMedium: getBoldStyle(fontSize: FontSize.s30),
+      headlineSmall: getRegularStyle(fontSize: FontSize.s32),
+    ),
   );
-}*/
+}

@@ -3,6 +3,8 @@ import 'package:my_gallery/presentation/gallery/view/gallery_view.dart';
 import 'package:my_gallery/presentation/login/view/login_view.dart';
 import 'package:my_gallery/presentation/resources/strings_manager.dart';
 
+import '../../app/di.dart';
+
 class Routes {
   static const String loginRoute = "/";
   static const String mainRoute = "/main";
@@ -12,8 +14,7 @@ class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
     switch (settings.name) {
       case Routes.loginRoute:
-        //todo di
-        //initLoginModule();
+        initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.mainRoute:
         //todo di

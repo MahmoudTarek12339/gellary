@@ -3,22 +3,24 @@ import 'package:my_gallery/presentation/resources/color_manager.dart';
 
 import 'font_manager.dart';
 
-TextStyle _getTextStyle(double fontSize, FontWeight fontWeight) {
+TextStyle _getTextStyle(double fontSize, FontWeight fontWeight, Color color) {
   return TextStyle(
       fontSize: fontSize,
       fontFamily: FontConstants.fontFamily,
-      color: ColorManager.lightBlack,
+      color: color,
       fontWeight: fontWeight);
 }
 
 // regular style
 
-TextStyle getRegularStyle({double fontSize = FontSize.s12}) {
-  return _getTextStyle(fontSize, FontWeightManager.regular);
+TextStyle getRegularStyle(
+    {double fontSize = FontSize.s12, Color color = ColorManager.lightBlack}) {
+  return _getTextStyle(fontSize, FontWeightManager.regular, color);
 }
 
 // bold style
 
-TextStyle getBoldtStyle({double fontSize = FontSize.s12}) {
-  return _getTextStyle(fontSize, FontWeightManager.bold);
+TextStyle getBoldStyle(
+    {double fontSize = FontSize.s12, Color color = ColorManager.lightBlack}) {
+  return _getTextStyle(fontSize, FontWeightManager.bold, color);
 }
