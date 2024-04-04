@@ -84,11 +84,11 @@ class _LoginCardState extends State<LoginCard> {
         minWidth: width * 0.5,
       ),
       child: SizedBox(
-        width: width * 0.65,
+        width: width * 0.85,
         height: height * 0.5,
         child: Card(
           color: ColorManager.white.withOpacity(0.4),
-          elevation: 5,
+          elevation: 10,
           shadowColor: Colors.transparent,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
@@ -96,11 +96,12 @@ class _LoginCardState extends State<LoginCard> {
               key: _formKey,
               child: Column(
                 children: [
-                  Expanded(
-                    child: Text(
-                      AppStrings.login,
-                      style: Theme.of(context).textTheme.headlineMedium,
-                    ),
+                  Text(
+                    AppStrings.login,
+                    style: Theme.of(context).textTheme.headlineMedium,
+                  ),
+                  const SizedBox(
+                    height: 37.0,
                   ),
                   TextFormFieldWidget(
                     controller: _emailController,
@@ -109,7 +110,7 @@ class _LoginCardState extends State<LoginCard> {
                     keyboardType: TextInputType.emailAddress,
                   ),
                   const SizedBox(
-                    height: 15,
+                    height: 38.0,
                   ),
                   TextFormFieldWidget(
                     controller: _passwordController,
@@ -119,25 +120,36 @@ class _LoginCardState extends State<LoginCard> {
                     secured: true,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 38,
                   ),
-                  Expanded(
-                    child: Container(
-                      width: double.infinity,
-                      clipBehavior: Clip.antiAliasWithSaveLayer,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _viewModel.login();
-                          }
-                        },
-                        child: Text(
-                          AppStrings.submit,
-                          style: TextStyle(color: ColorManager.white),
-                        ),
+                  Container(
+                    height: 40,
+                    width: double.infinity,
+                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          _viewModel.login();
+                          showDialog(
+                            context: context,
+                            builder: (context) {
+                              return const Column(
+                                mainAxisSize: MainAxisSize.min,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  CircularProgressIndicator(),
+                                ],
+                              );
+                            },
+                          );
+                        }
+                      },
+                      child: Text(
+                        AppStrings.submit,
+                        style: TextStyle(color: ColorManager.white),
                       ),
                     ),
                   ),

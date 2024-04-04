@@ -14,24 +14,24 @@ class LoginView extends StatelessWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
+              ColorManager.white,
               ColorManager.veryLightPink,
               ColorManager.lightPink,
               ColorManager.lightPurple,
-              ColorManager.white
             ],
             begin: Alignment.bottomCenter,
             end: Alignment.topRight,
           ),
         ),
-        child: Scaffold(
+        child: const Scaffold(
           backgroundColor: Colors.transparent,
           body: SingleChildScrollView(
             child: Center(
               child: Column(
                 children: [
-                  const CameraWidget(),
-                  const GellaryTextWidget(),
-                  const SizedBox(
+                  CameraWidget(),
+                  GellaryTextWidget(),
+                  SizedBox(
                     height: 15,
                   ),
                   LoginCard(),

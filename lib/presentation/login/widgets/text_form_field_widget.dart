@@ -13,39 +13,36 @@ class TextFormFieldWidget extends StatelessWidget {
       required this.validatorMessage,
       required this.label,
       required this.keyboardType,
-      this.secured=false,
+      this.secured = false,
       super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double height = MediaQuery.of(context).size.height;
-    return Expanded(
-      child: TextFormField(
-        controller: controller,
-        obscureText: secured,
-        decoration: InputDecoration(
-            fillColor: ColorManager.lightWhite,
-            filled: true,
-
-            constraints: BoxConstraints(
-              maxHeight: height * 0.9,
-              minHeight: height * 0.05,
-            ),
-            border: OutlineInputBorder(
-                borderSide: BorderSide.none,
-                borderRadius: BorderRadius.circular(15)),
-            labelText: label,
-            labelStyle: const TextStyle(
-              color: Colors.grey,
-            )),
-        keyboardType: keyboardType,
-        validator: (value) {
-          if (value == null || value.isEmpty) {
-            return validatorMessage;
-          }
-          return null;
-        },
-      ),
+    //final double height = MediaQuery.of(context).size.height;
+    return TextFormField(
+      controller: controller,
+      obscureText: secured,
+      decoration: InputDecoration(
+          fillColor: ColorManager.lightWhite,
+          contentPadding: const EdgeInsets.symmetric(horizontal: 21,vertical: 9),
+          filled: true,
+          constraints: const BoxConstraints(
+            maxHeight: 46.0,
+          ),
+          border: OutlineInputBorder(
+              borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(25)),
+          hintText: label,
+          hintStyle: const TextStyle(
+            color: Colors.grey,
+          )),
+      keyboardType: keyboardType,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return validatorMessage;
+        }
+        return null;
+      },
     );
   }
 }

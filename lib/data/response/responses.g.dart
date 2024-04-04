@@ -38,3 +38,46 @@ Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
       'user': instance.userResponse,
       'token': instance.token,
     };
+
+ImagesResponse _$ImagesResponseFromJson(Map<String, dynamic> json) =>
+    ImagesResponse(
+      (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+    );
+
+Map<String, dynamic> _$ImagesResponseToJson(ImagesResponse instance) =>
+    <String, dynamic>{
+      'images': instance.images,
+    };
+
+GetImagesResponse _$GetImagesResponseFromJson(Map<String, dynamic> json) =>
+    GetImagesResponse(
+      json['data'] == null
+          ? null
+          : ImagesResponse.fromJson(json['data'] as Map<String, dynamic>),
+      json['status'] as String?,
+      json['message'] as String?,
+    );
+
+Map<String, dynamic> _$GetImagesResponseToJson(GetImagesResponse instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'status': instance.status,
+      'message': instance.message,
+    };
+
+UploadImageResponse _$UploadImageResponseFromJson(Map<String, dynamic> json) =>
+    UploadImageResponse(
+      json['data'] == null
+          ? null
+          : ImagesResponse.fromJson(json['data'] as Map<String, dynamic>),
+      json['status'] as String?,
+      json['message'] as String?,
+    );
+
+Map<String, dynamic> _$UploadImageResponseToJson(
+        UploadImageResponse instance) =>
+    <String, dynamic>{
+      'data': instance.data,
+      'status': instance.status,
+      'message': instance.message,
+    };

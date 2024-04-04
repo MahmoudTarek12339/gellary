@@ -44,3 +44,56 @@ class LoginResponse {
   // to json
   Map<String, dynamic> toJson() => _$LoginResponseToJson(this);
 }
+
+@JsonSerializable()
+class ImagesResponse {
+  @JsonKey(name: "images")
+  List<String> images;
+
+  ImagesResponse(this.images);
+
+// from json
+  factory ImagesResponse.fromJson(Map<String, dynamic> json) =>
+      _$ImagesResponseFromJson(json);
+
+// to json
+  Map<String, dynamic> toJson() => _$ImagesResponseToJson(this);
+}
+
+@JsonSerializable()
+class GetImagesResponse {
+  @JsonKey(name: "data")
+  ImagesResponse? data;
+  @JsonKey(name: "status")
+  String? status;
+  @JsonKey(name: "message")
+  String? message;
+
+  GetImagesResponse(this.data, this.status, this.message);
+
+  // from json
+  factory GetImagesResponse.fromJson(Map<String, dynamic> json) =>
+      _$GetImagesResponseFromJson(json);
+
+  // to json
+  Map<String, dynamic> toJson() => _$GetImagesResponseToJson(this);
+}
+
+@JsonSerializable()
+class UploadImageResponse {
+  @JsonKey(name: "data")
+  ImagesResponse? data;
+  @JsonKey(name: "status")
+  String? status;
+  @JsonKey(name: "message")
+  String? message;
+
+  UploadImageResponse(this.data, this.status, this.message);
+
+  // from json
+  factory UploadImageResponse.fromJson(Map<String, dynamic> json) =>
+      _$UploadImageResponseFromJson(json);
+
+  // to json
+  Map<String, dynamic> toJson() => _$UploadImageResponseToJson(this);
+}

@@ -17,8 +17,7 @@ class RouteGenerator {
         initLoginModule();
         return MaterialPageRoute(builder: (_) => const LoginView());
       case Routes.mainRoute:
-        //todo di
-        //initHomeModule();
+        initGalleryModule();
         return MaterialPageRoute(builder: (_) => const GalleryView());
       default:
         return unDefinedRoute();

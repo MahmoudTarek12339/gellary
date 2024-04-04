@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
+import 'package:my_gallery/domain/usecase/gallery_usecase.dart';
+import 'package:my_gallery/domain/usecase/get_images_usecase.dart';
+import 'package:my_gallery/presentation/gallery/view_model/gallery_viewmodel.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/data_source/remote_data_source.dart';
@@ -37,5 +40,14 @@ initLoginModule() {
   if (!GetIt.I.isRegistered<LoginUseCase>()) {
     instance.registerFactory<LoginUseCase>(() => LoginUseCase(instance()));
     instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance()));
+  }
+}
+
+
+initGalleryModule() {
+  if (!GetIt.I.isRegistered<GalleryUseCase>()) {
+    instance.registerFactory<GalleryUseCase>(() => GalleryUseCase(instance()));
+    instance.registerFactory<GetImageUseCase>(() => GetImageUseCase(instance()));
+    instance.registerFactory<GalleryViewModel>(() => GalleryViewModel(instance(),instance()));
   }
 }

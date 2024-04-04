@@ -4,6 +4,7 @@ import 'package:my_gallery/data/network/failure.dart';
 
 import 'package:my_gallery/data/network/requests.dart';
 import 'package:my_gallery/domain/model/authentication_model.dart';
+import 'package:my_gallery/domain/model/images_model.dart';
 
 import '../../domain/repository/repository.dart';
 import '../data_source/remote_data_source.dart';
@@ -14,9 +15,39 @@ class RepositoryImpl implements Repository {
   RepositoryImpl(this._remoteDataSource);
 
   @override
-  Future<Either<Failure, AuthenticationModel>> login(LoginRequest loginRequest) async {
+  Future<Either<Failure, AuthenticationModel>> login(
+      LoginRequest loginRequest) async {
     try {
       final response = await _remoteDataSource.login(loginRequest);
+
+      // success
+      // return either right
+      // return data
+      return Right(response.toDomain());
+    } catch (error) {
+      return Left(Failure(404, error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ImagesModel>> getGallery() async {
+    try {
+      final response = await _remoteDataSource.getGallery();
+
+      // success
+      // return either right
+      // return data
+      return Right(response.toDomain());
+    } catch (error) {
+      return Left(Failure(404, error.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, ImagesModel>> uploadImage(
+      UploadImageRequest image) async {
+    try {
+      final response = await _remoteDataSource.uploadImage(image);
 
       // success
       // return either right

@@ -4,7 +4,7 @@ import 'app/app.dart';
 import 'app/di.dart';
 
 void main() async {
-  //WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding.ensureInitialized();
   await initAppModule();
 
   //todo localization
